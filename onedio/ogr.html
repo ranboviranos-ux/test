@@ -3,66 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kişilik Testi</title>
+    <title>Hangi Öğretmensin</title>
     <link rel="stylesheet" href="ogr.css">
 </head>
 <body>
     <div class="container">
-        <!-- Başlangıç Ekranı -->
-        <div class="start-screen" id="startScreen">
-            <h1>🎯 Kişilik Testi</h1>
-            <p>20 soruluk anketimizle sana en yakın kişiliği bulalım!</p>
-            <p>Her soru 4 seçenek sunuyor ve tercihlerine göre puanlama yapılıyor.</p>
-            <button class="start-btn" onclick="startQuiz()">Testi Başlat</button>
+      
+        <div id="startScreen">
+            <h1> Hangi MSFL Öğretmenisin?</h1>
+            <p class="subtitle">20 soruyla ruh ikizin olan hocayı öğren!</p>
+            <button class="start-btn" onclick="startQuiz()">Start</button>
         </div>
 
-        <!-- Anket Ekranı -->
-        <div class="quiz-container" id="quizContainer">
-            <div class="question-header">
-                <div class="question-number">Soru <span id="currentQuestion">1</span> / 20</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
+   
+        <div id="quizContainer" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
             </div>
-
-            <div class="question-content">
-                <h2 class="question-text" id="questionText">Soru yükleniyor...</h2>
-                <div class="options-container" id="optionsContainer">
-                    <!-- Seçenekler buraya gelecek -->
-                </div>
+            
+            <div class="question-number">
+                Soru <span id="currentQuestion">1</span> / <span id="totalQuestions">20</span>
             </div>
-
+            
+            <h2 class="question-text" id="questionText"></h2>
+            
+            <div class="options-container" id="optionsContainer"></div>
+            
             <div class="navigation">
-                <button class="nav-btn" id="prevBtn" onclick="previousQuestion()" disabled>Önceki</button>
-                <button class="nav-btn next-btn" id="nextBtn" onclick="nextQuestion()" disabled>Sonraki</button>
+                <button class="nav-btn" id="prevBtn" onclick="previousQuestion()">← Önceki</button>
+                <button class="nav-btn next-btn" id="nextBtn" onclick="nextQuestion()">Sonraki →</button>
             </div>
         </div>
 
-        <!-- Sonuç Ekranı -->
-        <div class="result-screen" id="resultScreen">
-            <h1>🎉 Sonuçların Hazır!</h1>
-            <div class="result-content">
-                <div class="winning-genre">
-                    <h2>Sen:</h2>
-                    <div class="genre-name" id="winningPerson">-</div>
-                    <div class="genre-score">Puan: <span id="winningScore">0</span></div>
+       
+        <div id="resultScreen" style="display: none;">
+            <div class="result-container">
+                <h1> Sonucun:</h1>
+                <div class="winner-card">
+                    <h2>Sen</h2>
+                    <h3 id="winningPerson"></h3>
+                    <p class="score">Puan: <span id="winningScore"></span></p>
+                    <p class="description" id="descriptionText"></p>
                 </div>
                 
-                <div class="main-recommendation">
-                    <h3>📝 Açıklama:</h3>
-                    <div class="description-text" id="descriptionText">-</div>
-                </div>
-
-                <div class="second-genre">
-                    <h4>İkinci yakın kişilik:</h4>
-                    <div class="second-info">
-                        <span id="secondPerson">-</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="result-actions">
-                <button class="restart-btn" onclick="restartQuiz()">Tekrar Dene</button>
+                
+                
+                <button class="restart-btn" onclick="restartQuiz()"> Tekrar Dene</button>
             </div>
         </div>
     </div>
